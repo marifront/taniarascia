@@ -1,33 +1,27 @@
 import React, {Component} from 'react'
 import MyTable from './Table'
+import Form from './Form'
 
 class App extends Component {
     state = {
         tableData: [
-            {
-                title: 'Торт',
-                price: '300'
-            },
-            {
-                title: 'Минеральная вода',
-                price: '35'
-            },
-            {
-                title: 'Чипсы',
-                price: '110'
-            },
         ]
     }
 
-    // removeData = (index) => {
-    //     const {tableData} = this.state;
+    removeData = (index) => {
+        const {tableData} = this.state;
 
-    //     this.setState({
-    //         tableData: tableData.filter((tableData, i) => {
-    //             return i!==index
-    //         })
-    //     })
-    // }
+        this.setState({
+            tableData: tableData.filter((tableData, i) => {
+                console.log(i, tableData);
+                return i!==index
+            })
+        })
+    }
+
+    handleForm = (data) => {
+        this.setState({tableData: [...this.state.tableData, data]})
+    }
 
     // handleSubmit = (character) => {
     //     this.setState({characters: [...this.state.characters, character]})
@@ -37,7 +31,8 @@ class App extends Component {
         const {tableData} = this.state;
         return (
             <div className="container">
-                <MyTable tableData={tableData} />
+                <MyTable tableData={tableData}  removeData={this.removeData}/>
+                <Form handleForm={this.handleForm}/>
                
             </div>
         )

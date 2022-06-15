@@ -1,0 +1,7 @@
+label {
+    width: 60px;
+    display: inline-block;
+}
+.label__wrap {
+    margin-bottom: 10px;
+}

@@ -21,7 +21,7 @@ const MyTableBody = (props) => {
             <tr key={index}>
                 <td>{row.title}</td>
                 <td>{row.price}</td>
-                {/* <td><button onClick={() => props.removeData(index)}>Удалить</button></td> */}
+                <td><button onClick={() => props.removeData(index)}>Удалить</button></td>
             </tr>
         )
     })
